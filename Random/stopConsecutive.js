@@ -1,4 +1,9 @@
-//Rearrange a string with two consecutive characters or more so that there are no consecutive characters that are the same.
+//*-------------------------------------------------------*
+//| Rearrange a string with two consecutive characters or |
+//| more so that there are no consecutive characters that |
+//| are the same. Return the new string if it works None  |
+//| if not                                                |
+//*-------------------------------------------------------*
 let rearrangeConsecutive = (origString) => {
 
     //An array that will act as a double sided queue to construct the new string
