@@ -22,5 +22,37 @@
  * Explanation 0
  *
  *The maximum candle height is 3 and there are two candles of that height.
- * /
+ */
 
+import java.util.*;
+
+public class birthdayCakeCandles {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int age = input.nextInt();
+        String[] candleHeights = input.next().split(" ");
+        int[] intCandleHeights = new int[candleHeights.length];
+        int highestInt = 0;
+        for(int i = 0; i < candleHeights.length; i++) {
+            int candleHeight = Integer.parseInt(candleHeights[i]);
+            if(candleHeight > highestInt) {
+                highestInt = candleHeight;
+            }
+            intCandleHeights[i] = candleHeight;
+            System.out.println(intCandleHeights[i]);
+        }
+
+        int blownOut = 0;
+        for(int i = 0; i < intCandleHeights.length; i++) {
+            if(age > 0) {
+                if(intCandleHeights[i] == highestInt) {
+                    blownOut++;
+                    age--;
+                }
+            } else {
+                break;
+            }
+        }
+        System.out.println(blownOut);
+    }
+}
