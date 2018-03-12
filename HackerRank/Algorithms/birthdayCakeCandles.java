@@ -29,8 +29,9 @@ import java.util.*;
 public class birthdayCakeCandles {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int age = input.nextInt();
-        String[] candleHeights = input.next().split(" ");
+        int age = Integer.parseInt(input.nextLine());
+        String birthdayCandleHeights = input.nextLine();
+        String[] candleHeights = birthdayCandleHeights.split(" ");
         int[] intCandleHeights = new int[candleHeights.length];
         int highestInt = 0;
         for(int i = 0; i < candleHeights.length; i++) {
@@ -39,7 +40,6 @@ public class birthdayCakeCandles {
                 highestInt = candleHeight;
             }
             intCandleHeights[i] = candleHeight;
-            System.out.println(intCandleHeights[i]);
         }
 
         int blownOut = 0;
