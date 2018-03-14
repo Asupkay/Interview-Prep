@@ -2,6 +2,7 @@
 "a(b(c){2}){2}d" decompresses to "abccbccd" 
 "((x){3}(y){2}z){2}" decompresses to "xxxyyzxxxyyz"*/
 
+//Works but is no the best solution
 const decompressString = (compressedString) => {
   let fullString = "";
   //Make start an array and pop of the starts so you know when the last start was this helps with moving over the string instead of making it recursive
