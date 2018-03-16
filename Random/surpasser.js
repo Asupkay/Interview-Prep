@@ -9,3 +9,22 @@ The "surpassers" are
 Question: Find the maximum surpasser of the array. 
 
 In this example, maximum surpasser = 5*/
+
+let surpasser = (numArray) => {
+  let surpasserArray = [];
+  for(let checking = 0; checking < numArray.length; checking++) {
+    let checkNum = numArray[checking];
+    let surpassers = 0;
+    for(let against = checking + 1; against < numArray.length; against++) {
+      let againstNum = numArray[against];
+      if(checkNum < againstNum) {
+        surpassers++;
+      }
+    }
+    surpasserArray.push([surpassers, checkNum]);
+  }
+  surpasserArray.sort();
+  surpasserArray[numArray.length - 1][1]; 
+}
+
+surpasser([2, 7, 5, 5, 2, 7, 0, 8, 1]);
