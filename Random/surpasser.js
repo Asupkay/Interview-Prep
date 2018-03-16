@@ -24,7 +24,8 @@ let surpasser = (numArray) => {
     surpasserArray.push([surpassers, checkNum]);
   }
   surpasserArray.sort();
-  surpasserArray[numArray.length - 1][1]; 
+  return surpasserArray[numArray.length - 1][1]; 
 }
 
-surpasser([2, 7, 5, 5, 2, 7, 0, 8, 1]);
+console.log(surpasser([2, 7, 5, 5, 2, 7, 0, 8, 1]));
+
