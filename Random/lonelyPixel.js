@@ -3,6 +3,9 @@ Given an N x M image with black pixels and white pixels, if a pixel is the only 
 
 let image = [["W", "W"],["B", "B"]]
 let image2 = [["W", "B"],["B", "W"]]
+let image3 = [["W", "B", "W", "B"],
+              ["B", "W", "W", "B"],
+              ["W", "W", "B", "W"]]
 
 let lonelyPixel = (image) => {
 
@@ -42,3 +45,4 @@ let lonelyPixel = (image) => {
 
 console.log(lonelyPixel(image));
 console.log(lonelyPixel(image2));
+console.log(lonelyPixel(image3));
