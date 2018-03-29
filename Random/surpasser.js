@@ -10,17 +10,23 @@ Question: Find the maximum surpasser of the array.
 
 In this example, maximum surpasser = 5*/
 
+//Take a num array
 let surpasser = (numArray) => {
+  //Create an array for the amount of surpassers
   let surpasserArray = [];
+  //This is inefficient starts with one number
   for(let checking = 0; checking < numArray.length; checking++) {
     let checkNum = numArray[checking];
     let surpassers = 0;
+    //Checking against another number
     for(let against = checking + 1; against < numArray.length; against++) {
       let againstNum = numArray[against];
       if(checkNum < againstNum) {
+        //Add a surpasser for this particular number
         surpassers++;
       }
     }
+    //Once you are done with that number push it onto the array
     surpasserArray.push([surpassers, checkNum]);
   }
   surpasserArray.sort();
