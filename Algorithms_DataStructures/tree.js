@@ -1,5 +1,9 @@
 class BinaryTree {
   constructor (node) {
+    if(!(node instanceof Node)) {
+      throw new Error('BinaryTree takes a node');
+    }
+
     this.root = node;
   }
 
@@ -26,11 +30,19 @@ class Node {
   }
 
   addLeft(node) {
-    this.left = node;
+    if(node instanceof Node) {
+      this.left = node;
+    } else {
+      throw new Error('Must add Node');
+    }
   }
 
   addRight(node) {
-    this.right = node;
+    if(node instanceof Node) {
+      this.right = node;
+    } else {
+      throw new Error('Must add Node');
+    }
   }
 }
 
@@ -39,10 +51,21 @@ const node1 = new Node(12);
 const node2 = new Node(13);
 const node3 = new Node(14);
 const binaryTree = new BinaryTree(node);
-console.log(binaryTree.root.value);
-console.log(binaryTree.toString())
-binaryTree.root.left = node1;
-binaryTree.root.right = node2;
-binaryTree.root.right.right = node3;
-console.log(binaryTree.toString())
 
+
+console.log(`Root Value: ${binaryTree.root.value}`);
+console.log(`To String after adding node of 10: ${binaryTree.toString()}`)
+binaryTree.root.addLeft(node1);
+binaryTree.root.addRight(node2);
+binaryTree.root.right.addRight(node3);
+console.log(`Added more nodes: ${binaryTree.toString()}`)
+
+console.log(binaryTree);
+console.log(binaryTree instanceof BinaryTree);
+console.log(2 instanceof BinaryTree);
+
+try {
+  binaryTree.root.left.addLeft(4);
+} catch (e) {
+  console.log("Caught that error");
+}
