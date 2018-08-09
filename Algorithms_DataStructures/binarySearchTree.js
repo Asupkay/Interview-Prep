@@ -95,6 +95,13 @@ class Node {
   }
 }
 
+let treeHeight = (tree) => {
+  if(tree == null) {
+    return 0;
+  }
+  return Math.max(1 + treeHeight(tree.left), 1 + treeHeight(tree.right));
+}
+
 let BST = new binarySearchTree(50);
 BST.addNode(30);
 BST.addNode(20);
@@ -103,9 +110,15 @@ BST.addNode(70);
 BST.addNode(60);
 BST.addNode(80);
 console.log(JSON.stringify(BST.root));
+console.log(treeHeight(BST.root));
 BST.deleteNode(20);
 console.log(JSON.stringify(BST.root));
+console.log(treeHeight(BST.root));
 BST.deleteNode(30);
 console.log(JSON.stringify(BST.root));
 BST.deleteNode(50);
 console.log(JSON.stringify(BST.root));
+console.log(treeHeight(BST.root));
+BST.deleteNode(80);
+console.log(JSON.stringify(BST.root));
+console.log(treeHeight(BST.root));
