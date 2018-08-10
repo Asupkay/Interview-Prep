@@ -1,5 +1,5 @@
 const quickSort = (array, left, right) => {
-  if((right - left) <= 0) {
+  if(left < right) {
     return array;
   }
 
