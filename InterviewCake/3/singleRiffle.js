@@ -15,4 +15,4 @@ const singleRiffle = (half1, half2, shuffledDeck) => {
   return true;
 }
 
-console.log(singleRiffle([1,2,3], [3,4,5], [1,3,4,2,3,5]));
+console.log(singleRiffle([1,2], [3,4,5,6], [1,4,2,3,5,6]));
