@@ -18,7 +18,7 @@ class BinaryTreeNode {
 
 const validBinaryTree = (tree) => {
   let nodes = [];
-  nodes.push([tree, Math.NEGATIVE_INFINITY, Math.POSITIVE_INFINITY]);
+  nodes.push([tree, Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY]);
   while(nodes.length) {
     let nodePair = nodes.pop();
     let node = nodePair[0];
