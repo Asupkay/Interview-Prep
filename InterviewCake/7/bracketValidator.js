@@ -6,18 +6,18 @@ const bracketValidator = (string) => {
     }
     if(string[i] === ')' || string[i] === ']' || string[i] === '}') {
       let matchingParen = stack.pop();
-      if(matchingParen === '(') {
-        if(string[i] !== ')') {
+      if(string[i] === ')') {
+        if(matchingParen !== '(') {
           return false;
         }
       }
-      if(matchingParen === '{') {
-        if(string[i] !== '}') {
+      if(string[i] === ']') {
+        if(matchingParen !== '[') {
           return false;
         }
       }
-      if(matchingParen === '[') {
-        if(string[i] !== ']') {
+      if(string[i] === '}') {
+        if(matchingParen !== '{') {
           return false;
         }
       }
@@ -32,3 +32,4 @@ const bracketValidator = (string) => {
 console.log(bracketValidator("{[]()}"));
 console.log(bracketValidator("{[(])}"));
 console.log(bracketValidator("{[}"));
+console.log(bracketValidator("{[]}}"));
