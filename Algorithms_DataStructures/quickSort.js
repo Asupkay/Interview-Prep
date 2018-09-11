@@ -36,5 +36,49 @@ let unsortArray = [2, 1, 3, 4];
 let sorted = quickSort(unsortArray, 0, unsortArray.length - 1);
 console.log(sorted);
 let unsortedArray = [9,5,10,4,15,32,64,2,23,1];
-let sortedArray = quickSort(unsortedArray, 0, unsortedArray.length - 1);
+
+const partition = (arr, pivot, left, right) => {
+  //Get the value of the pivot
+  let pivotValue = arr[pivot];
+  //Make the split the farthest left
+  let split = left;
+  //Make an index to iterate over the array
+  let cSpot = left;
+
+  while(cSpot < right) {
+    //If the current is less than the pivot value you we need swap it with the one right of the wall
+    if(arr[cSpot] < pivotValue) {
+      swap(arr, cSpot, split);
+      //Increment the wall
+      split++;
+    }
+    cSpot++;
+  }
+  //Swap the pivot to its proper position
+  swap(arr, split, pivot);
+  return split;
+}
+
+const quickSort2 = (arr, left, right) => {
+  //If left is less than right there is still work to do
+  if(left < right) {
+    //Sort the pieces of the array
+    let split = partition(arr, right, left, right);
+
+    //Do that for the sub arrays
+    quickSort2(arr, split + 1, right);
+    quickSort2(arr, left, split - 1);
+  }
+  //Return the overall array
+  return arr;
+}
+
+const swap = (arr, left, right) => {
+  let temp = arr[right];
+  arr[right] = arr[left];
+  arr[left] = temp;
+}
+
+let sortedArray = quickSort2(unsortedArray, 0, unsortedArray.length - 1);
 console.log(sortedArray);
+
