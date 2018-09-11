@@ -35,3 +35,48 @@ const mergeSort = (array) => {
 
 console.log(mergeSort([6,5,4,3,2,1]));
 console.log(mergeSort([7,6,5,4,3,2,1]));
+
+const mergeSort2 = (array) => {
+  if(array.length === 1) {
+    return array;
+  }
+  
+  let middle = Math.floor(array.length/2);
+  let left = array.slice(0,middle);
+  let right = array.slice(middle, array.length);
+
+  return merge(
+    mergeSort2(left),
+    mergeSort2(right),
+  )
+}
+
+merge = (left, right) => {
+  let result = [];
+  let lIndex = 0;
+  let rIndex = 0;
+  
+  while(lIndex < left.length && rIndex < right.length) {
+    if(left[lIndex] <= right[rIndex]) {
+      result.push(left[lIndex]);
+      lIndex++;
+    } else {
+      result.push(right[rIndex]);
+      rIndex++;
+    }
+  }
+
+  while(lIndex < left.length) {
+    result.push(left[lIndex]);
+    lIndex++;
+  }
+
+  while(rIndex < right.length) {
+    result.push(right[rIndex]);
+    rIndex++;
+  }
+
+  return result
+}
+
+console.log(mergeSort2([7,6,5,4,3,2,1]));
