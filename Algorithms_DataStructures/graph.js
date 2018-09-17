@@ -1,3 +1,5 @@
+//Graph using adjacency list
+
 class Graph {
   constructor() {
     this.edges = {};
