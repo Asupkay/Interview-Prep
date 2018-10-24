@@ -46,7 +46,7 @@ const partition = (arr, pivot, left, right) => {
   let cSpot = left;
 
   while(cSpot < right) {
-    //If the current is less than the pivot value you we need swap it with the one right of the wall
+    //If the current is less than the pivot value we need swap it with the one right of the wall
     if(arr[cSpot] < pivotValue) {
       swap(arr, cSpot, split);
       //Increment the wall

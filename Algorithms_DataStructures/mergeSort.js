@@ -48,7 +48,7 @@ const mergeSort2 = (array) => {
   let right = array.slice(middle, array.length);
 
   return merge(
-    //Merge sort those two halves and the merge sort them again
+    //Merge sort those two halves and  merge them again
     mergeSort2(left),
     mergeSort2(right),
   )
